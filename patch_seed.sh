@@ -1,0 +1,2 @@
+#!/bin/bash
+sed -i 's/-- 3. App Users/-- 3. App Users\n\n-- Ensure migration 0004 has run so columns exist:\nalter table users\n  add column if not exists login_alias varchar(50),\n  add column if not exists section varchar(100) not null default '"'"'Main Dining'"'"',\n  add column if not exists phone varchar(30),\n  add column if not exists on_duty boolean not null default false;\n\ncreate unique index if not exists idx_users_login_alias_org\n  on users (org_id, login_alias)\n  where login_alias is not null;\n/g' supabase/seed.sql
