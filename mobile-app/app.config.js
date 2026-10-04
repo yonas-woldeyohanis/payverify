@@ -33,16 +33,7 @@ export default ({ config }) => {
       }
     },
     plugins: [
-      ["expo-camera", { cameraPermission: `Allow ${APP_NAME} to access the camera to scan receipts.` }],
-      [
-        "expo-build-properties",
-        {
-          android: {
-            enableProguardInReleaseBuilds: true,
-            enableShrinkResourcesInReleaseBuilds: true
-          }
-        }
-      ]
+      ["expo-camera", { cameraPermission: `Allow ${APP_NAME} to access the camera to scan receipts.` }]
     ],
     extra: {
       eas: {
