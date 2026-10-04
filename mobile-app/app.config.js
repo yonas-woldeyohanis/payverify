@@ -25,6 +25,7 @@ export default ({ config }) => {
     },
     android: {
       package: BUNDLE_ID,
+      versionCode: 2,
       permissions: ["CAMERA"],
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
@@ -32,7 +33,16 @@ export default ({ config }) => {
       }
     },
     plugins: [
-      ["expo-camera", { cameraPermission: `Allow ${APP_NAME} to access the camera to scan receipts.` }]
+      ["expo-camera", { cameraPermission: `Allow ${APP_NAME} to access the camera to scan receipts.` }],
+      [
+        "expo-build-properties",
+        {
+          android: {
+            enableProguardInReleaseBuilds: true,
+            enableShrinkResourcesInReleaseBuilds: true
+          }
+        }
+      ]
     ],
     extra: {
       eas: {
