@@ -27,6 +27,7 @@ export default ({ config }) => {
       package: BUNDLE_ID,
       permissions: ["CAMERA"],
       adaptiveIcon: {
+        foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: PRIMARY_COLOR
       }
     },
