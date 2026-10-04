@@ -11,6 +11,12 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://vmifpqugzarduojgqsvo.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_UXxJn7n2Xjz_1wH_MLaRNg_O1UuVkN9",
+        "EXPO_PUBLIC_APP_NAME": "PayVerify Waiter",
+        "EXPO_PUBLIC_PRIMARY_COLOR": "#B8863C"
       }
     },
     "production": {}
