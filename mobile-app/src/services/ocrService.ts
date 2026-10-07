@@ -1,5 +1,12 @@
-import TextRecognition from "@react-native-ml-kit/text-recognition";
 import type { ParsedReceipt, PaymentProvider } from "@/types";
+
+let TextRecognition: any = null;
+try {
+  // Use require instead of import to prevent top-level crash if native module is missing
+  TextRecognition = require("@react-native-ml-kit/text-recognition").default;
+} catch (e) {
+  console.warn("Could not load ML Kit native module. Will use mock data.", e);
+}
 
 /**
  * Runs on-device ML Kit text recognition on a captured receipt photo, then
@@ -8,6 +15,7 @@ import type { ParsedReceipt, PaymentProvider } from "@/types";
  */
 export async function scanReceipt(imageUri: string): Promise<ParsedReceipt> {
   try {
+    if (!TextRecognition) throw new Error("Native TextRecognition module not loaded.");
     const result = await TextRecognition.recognize(imageUri);
     const rawText: string = result?.text ?? "";
     return parseReceiptText(rawText);
