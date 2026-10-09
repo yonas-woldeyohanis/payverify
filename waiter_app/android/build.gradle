@@ -1,4 +1,7 @@
 allprojects {
+    ext.compileSdkVersion = 34
+    ext.minSdkVersion = 24
+    ext.targetSdkVersion = 34
     repositories {
         google()
         mavenCentral()
